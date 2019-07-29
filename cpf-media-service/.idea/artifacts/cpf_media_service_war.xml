@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cpf-media-service:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>cpf-media-service</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="cpf-media-service-1.0.0.RELEASE.war">
+      <element id="artifact" artifact-name="cpf-media-service:war exploded" />
+    </root>
+  </artifact>
+</component>

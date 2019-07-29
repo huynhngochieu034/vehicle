@@ -1,0 +1,93 @@
+#server:
+#  port: ${telematic-service.port:9307}
+
+#spring:
+#  application:
+#    name: telematic-service
+#  jmx:
+#    default-domain: telematic-service
+
+  ## Datasource configuration ##
+  #datasource:
+  #  url: ${dbUrl:jdbc:postgresql://172.18.14.133:5433/hpi_platform_db}
+  #  username: ${dbUsername:postgres}
+  #  password: ${dbPassword:postgres}
+  #  driver-class-name: org.postgresql.Driver
+  ## JDBC connection pool ##
+  #  tomcat:
+  #    initial-size: 2
+  #    max-active: 2
+  #    max-wait: 10000
+  #    min-idle: 1
+  #    max-idle: 2
+  #    test-on-borrow: true
+  #    test-on-connect: true
+
+ ## JPA configuration ##
+#  jpa:
+#    show-sql: false
+#    generate-ddl: false
+#    hibernate:
+#      ddl-auto: create-drop
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#        show_sql: true
+      ## Batch processing insert/update ##
+#        jdbc:
+#          batch_size: 1000
+#        order_insert: true
+#        order_update: true
+    
+  # ## Rest data configuration ##
+  # data:
+  #   rest:
+  #     default-page-size: 50
+  #     max-page-size: 10000
+
+  # ## Limit uploading file size ##
+  # http:
+  #   multipart:
+  #     max-file-size: 1024MB
+  #     max-request-size: 1024MB
+  
+## Logging configuration ##
+# logging:
+#   level:
+#     ROOT: INFO
+#     com.hcc.hpi: DEBUG
+#   file: ./logs/telematic_service.log
+#   pattern: 
+#     file: "%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %C{1}:%L - %m%n"
+#     console: "%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %C{1}:%L - %m%n"
+
+# Spring Boot configuration
+spring:
+  profiles:
+    active: development
+# Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/vehicle
+    username: vehicle
+    password: 123456
+# JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: false
+# Logger configuration
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    org.springframework: INFO
+    org.hibernate: DEBUG
+# Server configuration
+server:
+  port: 8181
+  sessionTimeout: 30
